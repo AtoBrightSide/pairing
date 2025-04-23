@@ -1,0 +1,18 @@
+{
+  "name": "simple-demo-api",
+  "version": "1.0.0",
+  "description": "A simple demo api to handle auth for a front-end using Express and SQLite.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "author": "Abel Mesele",
+  "license": "ISC"
+}
