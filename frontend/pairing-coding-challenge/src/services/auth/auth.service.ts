@@ -12,7 +12,10 @@ const loginUser = async (credentials: CredentialType) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
     });
-    if (!response.ok) throw new Error('Failed to login');
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to login');
+    }
     return await response.json();
 };
 
@@ -22,7 +25,10 @@ const signupUser = async (userInfo: CredentialType) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userInfo),
     });
-    if (!response.ok) throw new Error('Failed to signup');
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to signup');
+    }
     return await response.json();
 };
 
