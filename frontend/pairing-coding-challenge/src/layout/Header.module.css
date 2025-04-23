@@ -1,0 +1,21 @@
+nav {
+  width: 80%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+
+ul {
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
