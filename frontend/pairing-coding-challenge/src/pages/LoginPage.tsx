@@ -29,14 +29,19 @@ export const LoginPage = () => {
         {/* <h1>{isLoggedIn ? 'logged in' : 'logged out'}</h1> */}
         <h1 className={classes.title}>Login Form</h1>
         <form onSubmit={handleLogin} className={classes.form}>
-            {loginError && <p>{loginError.message}</p>}
+            {loginError && <p className={classes.error}>{loginError.message}</p>}
             <label className={classes.label} htmlFor="email">Email</label>
-            <input className={classes.input} type="email" name="email" id="email" />
+            <input className={classes.input} type="email" name="email" id="email" required />
 
             <label className={classes.label} htmlFor="password">Password</label>
-            <input className={classes.input} type="password" name="password" id="password" />
+            <input className={classes.input} type="password" name="password" id="password" required min={6} max={10} />
 
-            <button disabled={loginLoading}>Submit</button>
+            <div className={classes.buttons}>
+                <button disabled={loginLoading} className={classes.reset}>Reset</button>
+                <button disabled={loginLoading}>
+                    {loginLoading ? 'Submitting ...' : 'Submit'}
+                </button>
+            </div>
         </form>
     </div>
 }

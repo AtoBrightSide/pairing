@@ -1,0 +1,41 @@
+.error {
+  color: rgb(222, 78, 78);
+}
+
+.buttons {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    /* background-color: antiquewhite; */
+}
+
+.reset {
+  background-color: rgb(236, 209, 209);
+}
+
+.validation-errors  {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    color: aliceblue;
+    padding: 0;
+    margin: 0;
+}
+
+.validation-errors > p {
+    padding: 0;
+    margin: 0;
+}
+
+.validation-errors > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+}
+.validation-errors > ul > li {
+    color: aliceblue;
+    padding: 0;
+    list-style: circle;
+    font-size: smaller;
+}
