@@ -36,7 +36,7 @@ export const LoginPage = () => {
             <input className={classes.input} type="password" name="password" id="password" required min={6} max={10} />
 
             <div className={classes.buttons}>
-                <button disabled={loginLoading} className={classes.reset}>Reset</button>
+                <button type="reset" disabled={loginLoading} className={classes.reset}>Reset</button>
                 <button disabled={loginLoading}>
                     {loginLoading ? 'Submitting ...' : 'Submit'}
                 </button>
