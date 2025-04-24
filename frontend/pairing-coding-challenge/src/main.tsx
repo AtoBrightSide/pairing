@@ -6,7 +6,10 @@ import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import { loader } from './services/attendance/attendance.service.ts'
+import { SignupPage } from './pages/SignupPage.tsx'
+import { LoginPage } from './pages/LoginPage.tsx'
+import { DashboardPage } from './pages/DashboardPage.tsx'
+import { ErrorPage } from './pages/ErrorPage.tsx'
 
 const queryClient = new QueryClient();
 
@@ -16,16 +19,19 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        index: true,
+        element: <DashboardPage />,
+      },
+      {
         path: 'sign-up',
+        element: <SignupPage />,
       },
       {
         path: 'login',
+        element: <LoginPage />
       },
-      {
-        path: 'dashboard',
-        loader: loader,
-      }
-    ]
+    ],
+    errorElement: <ErrorPage />
   },
 ]);
 
