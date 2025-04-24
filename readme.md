@@ -58,7 +58,6 @@ npm start
 ```
 
 The server will run on `http://localhost:3000` by default.
-Alternatively, you can use the deployed web service of this app here: https://pairing-coding-challenge.onrender.com
 ---
 
 ## Frontend Setup
