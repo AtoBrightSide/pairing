@@ -6,6 +6,8 @@ import { fetchData } from "../http";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "../types";
 
+import classes from './DashboardPage.module.css';
+
 export const DashboardPage = () => {
     const navigate = useNavigate();
     const isLoggedIn = useSelector((state: RootState) => state.user.isAuthenticated);
@@ -39,8 +41,8 @@ export const DashboardPage = () => {
     }
 
     return (
-        <>
-            <select name="date_pick" id="date_pick" value={selectedDay} onChange={(e) => handleSelect(e)}>
+        <div className={classes.tableContainer}>
+            <select name="date_pick" id="date_pick" value={selectedDay} onChange={(e) => handleSelect(e)} className={classes.selector}>
                 <option value="current_day">
                     Current Day
                 </option>
@@ -49,9 +51,9 @@ export const DashboardPage = () => {
                 </option>
             </select>
             {attendance && (
-                <>
+                <div>
                     <h2>Attendance for {attendance.date}</h2>
-                    <table>
+                    <table className={classes.table}>
                         <thead>
                             <tr>
                                 <th>Employee ID</th>
@@ -65,7 +67,7 @@ export const DashboardPage = () => {
                         </thead>
                         <tbody>
                             {attendance.employees.map((employee) => (
-                                <tr key={employee.id}>
+                                <tr key={employee.id} className={classes.tableRow}>
                                     <td>{employee.id}</td>
                                     <td>{employee.name}</td>
                                     <td>{employee.timezone}</td>
@@ -77,8 +79,8 @@ export const DashboardPage = () => {
                             ))}
                         </tbody>
                     </table>
-                </>
+                </div>
             )}
-        </>
+        </div>
     );
 };

@@ -18,10 +18,15 @@ export const Header = () => {
   )
 
   return <nav className={classes.nav}>
-    <h1>{isLoggedIn ? 'Dashboard' : 'Sign up or login'}</h1>
+    <h1>
+      {isLoggedIn ?
+        <NavLink to='/'>Dashboard</NavLink> :
+        <p>Sign up or login</p>
+      }
+    </h1>
     <ul className={classes.ul}>
       <li>{NavAuth}</li>
-      <li><NavLink to={'/Signup'}>Signup</NavLink></li>
+      <li><NavLink to={'/sign-up'}>Signup</NavLink></li>
     </ul>
   </nav>;
 };
