@@ -32,21 +32,14 @@ export function formatTime(dateTimeStr: string): string {
 }
 
 
-/**
- * Checks whether the given password contains at least:
- * - One digit (0-9)
- * - One uppercase letter (A-Z)
- * - One lowercase letter (a-z)
- * - One special character (e.g., !@#$%^&*(),.?":{}|<>)
- *
- * @param password - The password string to validate.
- * @returns {boolean} True if the password meets all the criteria; otherwise, false.
- */
-export function validatePassword(password: string): boolean {
-    const hasDigit = /[0-9]/.test(password);
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasLowercase = /[a-z]/.test(password);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+export const hasUppercase = (password: string) => /[A-Z]/.test(password);
+export const hasDigit = (password: string) => /[0-9]/.test(password);
+export const hasLowercase = (password: string) => /[a-z]/.test(password);
+export const hasSpecialChar = (password: string) => /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
-    return hasDigit && hasUppercase && hasLowercase && hasSpecialChar;
-}
+export const validatePassword = (password: string) =>
+    hasDigit(password) &&
+    hasUppercase(password) &&
+    hasLowercase(password) &&
+    hasSpecialChar(password);
+

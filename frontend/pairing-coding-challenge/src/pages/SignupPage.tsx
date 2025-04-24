@@ -4,7 +4,7 @@ import { setAuthState } from "../store/usersSlice";
 import { useNavigate } from "react-router";
 
 import classes from './SignupPage.module.css';
-import { validatePassword } from "../util/utils";
+import { hasDigit, hasLowercase, hasSpecialChar, hasUppercase, validatePassword } from "../util/utils";
 import { useState } from "react";
 
 export const SignupPage = () => {
@@ -13,7 +13,7 @@ export const SignupPage = () => {
 
     const { mutate: signup, isPending, isError, error } = useSignup();
 
-    const [inValidInput, setInValidInput] = useState(false);
+    const [inValidInput, setInValidInput] = useState('');
 
     const handleSignup = (event: React.FormEvent) => {
         event.preventDefault();
@@ -31,7 +31,7 @@ export const SignupPage = () => {
                 onError: () => console.error(error),
             });
         } else {
-            setInValidInput(true);
+            setInValidInput(String(data.password));
         }
     };
 
@@ -47,10 +47,10 @@ export const SignupPage = () => {
                 <div className={classes['validation-errors']}>
                     <p>Make sure you satisfy the following criteria:</p>
                     <ul>
-                        <li>One digit (0 - 9)</li>
-                        <li>One upper case letter (A-Z)</li>
-                        <li>One lower case letter (a-z)</li>
-                        <li>{`One special character (!@#$%^&*(),.?":{}|<>)`}</li>
+                        {!hasDigit(inValidInput) && <li> One digit (0 - 9)</li>}
+                        {!hasUppercase(inValidInput) && <li>One upper case letter (A-Z)</li>}
+                        {!hasLowercase(inValidInput) && <li>One lower case letter (a-z)</li>}
+                        {!hasSpecialChar(inValidInput) && <li>{`One special character (!@#$%^&*(),.?":{}|<>)`}</li>}
                     </ul>
                 </div>
             )}
@@ -64,6 +64,6 @@ export const SignupPage = () => {
                 <button type="reset" disabled={isPending} className={classes.reset}>Reset</button>
                 <button disabled={isPending}>{isPending ? 'Submitting ...' : 'Submit'}</button>
             </div>
-        </form>
-    </div>
+        </form >
+    </div >
 }
