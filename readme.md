@@ -96,6 +96,8 @@ npm run dev
 
 The application will be available at `http://localhost:5173` by default.
 
+Alternatively, you can make use of the deployed website here: https://pairing-coding-challenge.vercel.app/
+
 #### 5. Build for Production
 
 To build the frontend for production, run:
