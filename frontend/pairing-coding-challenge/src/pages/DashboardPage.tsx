@@ -32,7 +32,10 @@ export const DashboardPage = () => {
     }
 
     if (isError) {
-        return <p>Error: {(error as Error).message}</p>;
+        return <>
+        <h2>Something went terribly wrong!</h2>
+        <p>Error: {error.message}</p>
+        </>
     }
 
     const attendance = selectedDay === 'current_day' ? data?.attendance_data.current_day : data?.attendance_data.yesterday;

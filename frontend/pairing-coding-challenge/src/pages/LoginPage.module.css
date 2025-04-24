@@ -56,3 +56,7 @@ input {
 .reset {
   background-color: rgb(236, 209, 209);
 }
+
+.error {
+  color: rgb(222, 78, 78);
+}
