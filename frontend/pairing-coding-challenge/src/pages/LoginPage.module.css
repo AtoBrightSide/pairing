@@ -1,8 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 form {
   width: 90%;
   max-width: 40rem;
-  margin: 3rem auto;
-  padding: 2rem;
+  /* margin: 3rem auto; */
+  padding: 3rem;
   background: linear-gradient(180deg, #253c3c, #1d4949);
   border-radius: 8px;
   box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
@@ -13,8 +18,8 @@ form {
 
 h1 {
   font-family: "Quicksand", sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
+  /* font-weight: 700; */
+  /* font-size: 3rem; */
   margin: 1rem 0;
   letter-spacing: 0.2rem;
   color: #2f4444;
@@ -39,6 +44,13 @@ input {
   border: 1px solid #758a8a;
   background-color: #869999;
   color: #142020;
+}
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  /* background-color: antiquewhite; */
 }
 
 .reset {

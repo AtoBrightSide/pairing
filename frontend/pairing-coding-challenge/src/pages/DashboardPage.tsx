@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ApiResponse } from "../types";
 
 import classes from './DashboardPage.module.css';
+import { formatDate, formatTime } from "../util/utils";
 
 export const DashboardPage = () => {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ export const DashboardPage = () => {
             </select>
             {attendance && (
                 <div>
-                    <h2>Attendance for {attendance.date}</h2>
+                    <h2>Attendance for {formatDate(attendance.date)}</h2>
                     <table className={classes.table}>
                         <thead>
                             <tr>
@@ -71,10 +72,10 @@ export const DashboardPage = () => {
                                     <td>{employee.id}</td>
                                     <td>{employee.name}</td>
                                     <td>{employee.timezone}</td>
-                                    <td>{employee.checked_in_at}</td>
-                                    <td>{employee.checked_out_at || 'N/A'}</td>
+                                    <td>{formatTime(employee.checked_in_at)}</td>
+                                    <td>{formatTime(employee.checked_out_at || '') || 'N/A'}</td>
                                     <td>{employee.checkout_message || 'N/A'}</td>
-                                    <td>{attendance.date}</td>
+                                    <td>{formatDate(attendance.date)}</td>
                                 </tr>
                             ))}
                         </tbody>

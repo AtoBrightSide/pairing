@@ -26,8 +26,7 @@ export const LoginPage = () => {
         });
     };
     return <div className={classes.container}>
-        {/* <h1>{isLoggedIn ? 'logged in' : 'logged out'}</h1> */}
-        <h1 className={classes.title}>Login Form</h1>
+        <h1 className={classes.title}>Login</h1>
         <form onSubmit={handleLogin} className={classes.form}>
             {loginError && <p className={classes.error}>{loginError.message}</p>}
             <label className={classes.label} htmlFor="email">Email</label>

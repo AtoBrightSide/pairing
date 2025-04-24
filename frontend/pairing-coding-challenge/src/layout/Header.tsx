@@ -20,8 +20,8 @@ export const Header = () => {
   return <nav className={classes.nav}>
     <h1>
       {isLoggedIn ?
-        <NavLink to='/'>Dashboard</NavLink> :
-        <p>Sign up or login</p>
+        <NavLink to='/'>Attendance Tracker</NavLink> :
+        <p>Attendance Tracker</p>
       }
     </h1>
     <ul className={classes.ul}>

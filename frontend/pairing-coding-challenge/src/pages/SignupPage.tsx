@@ -39,8 +39,8 @@ export const SignupPage = () => {
 
     }
 
-    return <div className={classes.signup}>
-        <h1>Sign Up form</h1>
+    return <div className={classes.container}>
+        <h1>Create Account</h1>
         <form onSubmit={handleSignup}>
             {error && <p className={classes.error}>{error.message}</p>}
             {inValidInput && (
